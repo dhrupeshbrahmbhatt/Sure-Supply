@@ -5,6 +5,10 @@ import RetailerLanding from './pages/RetailerLanding';
 import CustomerLanding from './pages/CustomerLanding';
 import CustomerSignup from './components/CustomerSignup';
 import RetailerSignup from './components/RetailerSignup';
+import CustomerLogin from './components/CustomerLogin';
+import RetailerLogin from './components/RetailerLogin';
+import CustomerDashboard from './pages/CustomerDashboard';
+import RetailerDashboard from './pages/RetailerDashboard';
 
 function App() {
   return (
@@ -32,6 +36,11 @@ function App() {
         <Route path="/retailer" element={<RetailerLanding />} />
         <Route path="/signup/customer" element={<CustomerSignup />} />
         <Route path="/signup/retailer" element={<RetailerSignup />} />
+        <Route path="/login/customer" element={<CustomerLogin />} />
+        <Route path="/login/retailer" element={<RetailerLogin />} />
+        <Route path="/dashboard/customer" element={<CustomerDashboard />} />
+        <Route path="/dashboard/retailer" element={<RetailerDashboard />} />
+
       </Routes>
     </Router>
   )

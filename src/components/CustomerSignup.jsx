@@ -4,6 +4,7 @@ import { FaUser, FaPhone, FaArrowRight } from 'react-icons/fa';
 import { RiVipCrownFill, RiSecurePaymentFill } from 'react-icons/ri';
 import { IoSpeedometer } from 'react-icons/io5';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 const CustomerSignup = () => {
   const [formData, setFormData] = useState({
@@ -19,18 +20,18 @@ const CustomerSignup = () => {
   const features = [
     {
       icon: <RiVipCrownFill size={32} />,
-      title: "Premium Experience",
-      description: "Access exclusive VIP benefits and personalized shopping"
+      title: "Dynamic Discounts",
+      description: "Access time-sensitive deals on quality products"
     },
     {
       icon: <RiSecurePaymentFill size={32} />,
-      title: "Secure Transactions",
-      description: "Bank-grade security with seamless processing"
+      title: "Impact Tracking",
+      description: "Monitor your contribution to waste reduction"
     },
     {
       icon: <IoSpeedometer size={32} />,
-      title: "Instant Access",
-      description: "Quick checkouts and real-time order updates"
+      title: "Smart Notifications",
+      description: "Real-time alerts for nearby deals"
     }
   ];
 
@@ -66,7 +67,7 @@ const CustomerSignup = () => {
     const loadingToast = toast.loading('Sending OTP...');
     
     try {
-      const response = await fetch('http://localhost:3000/customer/send-otp', {
+      const response = await fetch('http://localhost:3000/send-otp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ phoneNumber: formData.phoneNumber })
@@ -140,10 +141,10 @@ const CustomerSignup = () => {
             <div className="relative p-10 h-full flex flex-col justify-center">
               <motion.div variants={itemVariants}>
                 <h1 className="text-5xl font-extrabold text-emerald-50 mb-6 leading-tight">
-                  Experience<br />Luxury Shopping
+                  Smart Shopping<br />Made Sustainable
                 </h1>
                 <p className="text-emerald-100/80 text-lg mb-12">
-                  Join our exclusive community of distinguished customers
+                  Join our community of conscious consumers
                 </p>
               </motion.div>
 
@@ -176,7 +177,7 @@ const CustomerSignup = () => {
           <div className="p-10 flex flex-col justify-center bg-luxury-pearl/50 backdrop-blur-md">
             <motion.div variants={itemVariants}>
               <h2 className="text-3xl font-bold text-emerald-900 mb-8 text-center">
-                Create Premium Account
+                Create Sustainable Account
               </h2>
             </motion.div>
 
@@ -273,6 +274,32 @@ const CustomerSignup = () => {
                     Privacy Policy
                   </a>
                 </p>
+              </motion.div>
+
+              <motion.div variants={itemVariants}>
+                <div className="mt-6 flex flex-col items-center space-y-4">
+                  <p className="text-gray-600">
+                    Already have an account?{' '}
+                    <Link 
+                      to="/login/customer" 
+                      className="font-semibold text-emerald-600 hover:text-emerald-500 transition-colors duration-300 border-b-2 border-transparent hover:border-emerald-500"
+                    >
+                      Login
+                    </Link>
+                  </p>
+                  
+                  <div className="w-full border-t border-gray-200" />
+                  
+                  <Link 
+                    to="/signup/retailer" 
+                    className="group flex items-center gap-2 px-4 py-2 rounded-xl hover:bg-emerald-50 transition-all duration-300"
+                  >
+                    <span className="text-sm text-gray-600">Are you a business?</span>
+                    <span className="font-semibold text-emerald-600 group-hover:text-emerald-500 transition-colors duration-300">
+                      Register as Retailer →
+                    </span>
+                  </Link>
+                </div>
               </motion.div>
             </form>
           </div>

@@ -4,6 +4,7 @@ import { FaUser, FaEnvelope, FaPhone, FaArrowRight, FaEye, FaEyeSlash } from 're
 import { RiVipCrownFill, RiSecurePaymentFill, RiStoreLine } from 'react-icons/ri';
 import { IoSpeedometer } from 'react-icons/io5';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 const RetailerSignup = () => {
   const [formData, setFormData] = useState({
@@ -22,18 +23,18 @@ const RetailerSignup = () => {
   const features = [
     {
       icon: <RiStoreLine size={32} />,
-      title: "Premium Business Suite",
-      description: "Access exclusive tools designed for business excellence"
+      title: "AI-Powered Insights",
+      description: "Smart predictions for inventory optimization"
     },
     {
       icon: <RiVipCrownFill size={32} />,
-      title: "Elite Dashboard",
-      description: "Sophisticated analytics and insights for informed decisions"
+      title: "Waste Prevention",
+      description: "Advanced analytics for reducing food waste"
     },
     {
       icon: <IoSpeedometer size={32} />,
-      title: "Real-time Management",
-      description: "Seamless order processing and inventory control"
+      title: "Social Impact",
+      description: "Connect with NGOs and track your community impact"
     }
   ];
 
@@ -142,10 +143,10 @@ const RetailerSignup = () => {
             <div className="relative p-10 h-full flex flex-col justify-center">
               <motion.div variants={itemVariants}>
                 <h1 className="text-5xl font-extrabold text-emerald-50 mb-6 leading-tight">
-                  Elevate Your<br />Business Legacy
+                  Transform Your<br />Inventory Management
                 </h1>
                 <p className="text-emerald-100/80 text-lg mb-12">
-                  Join our exclusive network of distinguished retailers
+                  Join our network of waste-conscious retailers
                 </p>
               </motion.div>
 
@@ -324,6 +325,32 @@ const RetailerSignup = () => {
                     Privacy Policy
                   </a>
                 </p>
+              </motion.div>
+
+              <motion.div variants={itemVariants}>
+                <div className="mt-6 flex flex-col items-center space-y-4">
+                  <p className="text-gray-600">
+                    Already have an account?{' '}
+                    <Link 
+                      to="/login/retailer" 
+                      className="font-semibold text-emerald-600 hover:text-emerald-500 transition-colors duration-300 border-b-2 border-transparent hover:border-emerald-500"
+                    >
+                      Login
+                    </Link>
+                  </p>
+                  
+                  <div className="w-full border-t border-gray-200" />
+                  
+                  <Link 
+                    to="/signup/customer" 
+                    className="group flex items-center gap-2 px-4 py-2 rounded-xl hover:bg-emerald-50 transition-all duration-300"
+                  >
+                    <span className="text-sm text-gray-600">Are you a customer?</span>
+                    <span className="font-semibold text-emerald-600 group-hover:text-emerald-500 transition-colors duration-300">
+                      Sign up as Customer →
+                    </span>
+                  </Link>
+                </div>
               </motion.div>
             </form>
           </div>
